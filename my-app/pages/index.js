@@ -186,11 +186,6 @@ export default function Home(){
     const provider = await web3ModalRef.current.connect();
     const web3Provider = new providers.Web3Provider(provider);
     
-    web3Provider.on("connect", (info: { chainId: number }) => {
-  console.log(info);
-      console.log("web3Provider")
-});
-
     const {chainId} = await web3Provider.getNetwork();
     if(chainId !==4){
       window.alert("Please switch to the Rinkeby network");
